@@ -1,0 +1,33 @@
+{
+  "name": "sigv4",
+  "version": "0.0.1",
+  "description": "Tiny helper for performing necessary SigV4 steps to be used by a client",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist/",
+    "test": "npm run build && node dist/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pwntus/sigv4.git"
+  },
+  "keywords": [
+    "aws",
+    "api",
+    "gateway",
+    "sigv4"
+  ],
+  "author": "Pontus Aurdal <pontus.edvard@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Pwntus/sigv4/issues"
+  },
+  "homepage": "https://github.com/Pwntus/sigv4#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.0"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.9-1"
+  }
+}
