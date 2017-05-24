@@ -22,10 +22,6 @@ exports.default = function (config) {
   headers[X_AMZ_DATE] = datetime;
   headers[HOST] = hostname(config.endpoint);
 
-  /* GET
-   * Payload in queryParams,
-   * data = ''
-   */
   if (config.method === 'GET') {
     headers['Content-Type'] = config.defaultContentType;
     queryParams = config.data;
@@ -36,11 +32,9 @@ exports.default = function (config) {
 
   /* Perform SigV4 steps */
   var canonicalRequest = buildCanonicalRequest(config.method, config.path, queryParams, headers, config.data);
-  console.log(canonicalRequest);
   var hashedCanonicalRequest = hashCanonicalRequest(canonicalRequest);
   var credentialScope = buildCredentialScope(datetime, config.region, config.serviceName);
   var stringToSign = buildStringToSign(datetime, credentialScope, hashedCanonicalRequest);
-  console.log(stringToSign);
   var signingKey = calculateSigningKey(config.secretKey, datetime, config.region, config.serviceName);
   var signature = calculateSignature(signingKey, stringToSign);
 

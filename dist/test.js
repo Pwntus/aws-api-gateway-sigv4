@@ -18,6 +18,4 @@ var config = {
   sessionToken: 'Z'
 };
 
-var signed = (0, _index2.default)(config);
-
-console.log('OK', signed);
+console.log((0, _index2.default)(config));
